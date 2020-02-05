@@ -31,6 +31,9 @@ function buildQuery(city) {
         condition.append(weather);
         let curWeather = $("<div>");
         curWeather.append(cityName, temp, condition);
+        var iconurl = "http://weatherbit/img/w/" + iconcode + ".png";        
+        $('#wicon').attr('src', iconurl);
+
 
         $("#curWeather").append(curWeather);
         //$("#article-section").append(cityName, temp, condition);

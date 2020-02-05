@@ -36,7 +36,7 @@
                 <div class="card">
                     <div class="card-header">
                         <strong>
-                            <i class="fa fa-list-alt"></i> Search by Zip Code</strong>
+                            <i class="fa fa-list-alt"></i> Search by name of city</strong>
                     </div>
                     <div class="card-body">
                         <div class="form-group">
@@ -49,7 +49,7 @@
                             <i class="fa fa-search"></i> Search</button>
                         <button class="btn btn-default" id="clear-all">
                             <i class="fa fa-trash"></i> Clear Results</button>
-
+                        
                         </form>
                     </div>
                 </div>
@@ -62,23 +62,23 @@
                 <br>
 
                 <!-- This card will initially be made up of a card and wells for each of the articles retrieved -->
-                <div class="card">
+                <div class="card hide">
 
                     <!-- card Heading for the retrieved articles box -->
-                    <div class="card-header">
+                    <div class="card-header hide">
                         <strong>
-                            <i class="fa fa-table"></i> 5 Day Outlook</strong>
+                            <i class="fa fa-table"></i> Todays Weather</strong>
                     </div>
 
                     <!-- This main card will hold each of the resulting articles -->
-                    <div class="card-body" id="article-section">
+                    <div class="card-body" id="curWeather">
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Footer Region -->
-        <div class="row">
+        <div class="row bottom">
             <div class="col-sm-12">
 
                 <!-- Line Break followed by closing -->

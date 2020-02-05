@@ -6,4 +6,11 @@ body {
      color: white;
      background-color: transparent;
  }
+ div:empty {
+     display: none;
+ }
+
+ div.row.bottom {
+height: 2rem;
+ }
 

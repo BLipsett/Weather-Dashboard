@@ -21,20 +21,22 @@ function buildQuery(city) {
 
 
         //Build HTML for generated information
-        let tempF = ((response.data[0].temp) * 9 / 5) + 32;
+        let tempF = ((response.data["0"].temp) * 9 / 5) + 32;
         let cityName = $("<h1>").text(response.city_name);
-        let date = $("<h4>").text(response.data[0].valid_date);
+        let date = $("<h4>").text(response.data["0"].valid_date);
         cityName.append(date);
-        let temp = $("<h4>").append(tempF) + "F";
-        let weather = $("<img>").attr(response.data[0].weather.icon);
-        let condition = $("<div>").text(response.data[0].weather.description);
-        condition.append(weather);
+        let temp = $("<h4>")
+        temp.text(`${tempF} + F)`);
+        let weather = (response.data["0"].weather.icon);
+        let condition = $("<div>").text(response.data["0"].weather.description);
+        //condition.append(weather);
         let curWeather = $("<div>");
         curWeather.append(cityName, temp, condition);
-        var iconurl = "http://weatherbit/img/w/" + iconcode + ".png";        
+        console.log(tempF);
+        var iconurl =  "https://www.weatherbit.io/static/img/icons/"+ weather + ".png";        
         $('#wicon').attr('src', iconurl);
 
-
+        //data[""0""].weather.icon
         $("#curWeather").append(curWeather);
         //$("#article-section").append(cityName, temp, condition);
 //if (response === )

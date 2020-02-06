@@ -41,4 +41,12 @@ height: 2rem;
       color: white;
       margin: 1rem 0;
   }
+  div.buttons {
+      padding: .75rem;
+  }
+
+  .validate.valid {
+      color: white;
+      background-color: transparent;
+  }
 

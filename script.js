@@ -29,8 +29,8 @@ function buildQuery(city) {
         //Build HTML for generated information
 
         let tempF = Math.round((response.data["0"].temp) * 9 / 5) + 32;
-        let cityName = $("<h1>").text(response.city_name);
-        let date = $("<h4>").text(response.data["0"].valid_date);
+        let cityName = $("<h3>").text(response.city_name);
+        let date = $("<h6>").text(response.data["0"].valid_date);
         cityName.append(date);
 
         let windMeters = Math.round((response.data["0"].wind_spd) * 2.237);
@@ -48,6 +48,10 @@ function buildQuery(city) {
         let curWeather = $("<div>");
         curWeather.append(cityName, temp, condition, wind, humd, uv);
         console.log(tempF);
+        
+        $("#curWeather").append(curWeather);
+        
+        
         var iconurl = "https://www.weatherbit.io/static/img/icons/" + weather + ".png";
         $('#wicon').attr('src', iconurl);
 
@@ -55,11 +59,9 @@ function buildQuery(city) {
 
 
 
-
-
-
-        //data[""0""].weather.icon
-        $("#curWeather").append(curWeather);
+        //build 5 day forecast from call?
+        //let temp = 7;
+        //$("#forecastWeather").append(tempF);
 
         return getWeb;
     });
@@ -88,6 +90,7 @@ $(".run-search").on("click", showCont, function (saveEvent) {
     event.preventDefault();
     let city = $("#search-term").val().trim();
     $("div").removeClass("hide");
+
     
 
 

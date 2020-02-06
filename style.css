@@ -33,6 +33,12 @@ height: 2rem;
      color: white;
      font-size: medium;
      padding: 10px;
-
  }
+  button.run-search {
+      background-color: transparent;
+      border: 1px white;
+      border-radius: 2px;
+      color: white;
+      margin: 1rem 0;
+  }
 

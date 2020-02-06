@@ -1,6 +1,12 @@
 _dsSecret = "&KEY=8847349d953145628ca0bbd65ed8bb9c";
 
-//query for dark sky api
+
+function loadDashboard() {
+    //$(".container").html("");
+}
+
+
+//query for weatherbit api
 function buildQuery(city) {
 
 
@@ -22,13 +28,18 @@ function buildQuery(city) {
 
         //Build HTML for generated information
 
-        let tempF = ((response.data["0"].temp) * 9 / 5) + 32;
+        let tempF = Math.round((response.data["0"].temp) * 9 / 5) + 32;
         let cityName = $("<h1>").text(response.city_name);
         let date = $("<h4>").text(response.data["0"].valid_date);
         cityName.append(date);
-        let wind = $("<p>").text(response.data["0"].wind_spd);
+
+        let windMeters = Math.round((response.data["0"].wind_spd) * 2.237);
+        //let windS = Math.round(windMeters);
+        let wind = $("<p>")
+        wind.text(`${windMeters} MPH`);
+
         let humd = $("<p>").text(response.data["0"].rh).prepend("Humidity: ");
-        let uv = $("<p>").text(response.data["0"].uv).prepend("UV Index: ");
+        let uv = $("<p>").text(Math.round(response.data["0"].uv)).prepend("UV Index: ");
         let temp = $("<h4>")
         temp.text(`${tempF}F`);
         let weather = (response.data["0"].weather.icon);
@@ -58,18 +69,42 @@ function buildQuery(city) {
 
 
 
-$(".run-search").on("click", function (event) {
+
+
+function saveEvent() {
+    let code = text(pastCity);
+
+    localStorage.setItem(code);
+    console.log(code);
+}
+
+function showCont() {
+    $("#curCont").removeClass("hide");
+    $("#curcont").addClass("show");
+}
+
+
+$(".run-search").on("click", showCont, function (saveEvent) {
     event.preventDefault();
     let city = $("#search-term").val().trim();
+    $("div").removeClass("hide");
+    
 
 
     //build list from searched cities
-    let pastCity = $("<button>").text(city).addClass(".run-search");
+    let pastCity = $("<button>").text(city).addClass("run-search");
     $(".list").append(pastCity);
 
 
 
     buildQuery(city);
+});
+$("#clear").on("click", loadDashboard(), {
+
+});
+$(function () {
+    loadDashboard();
+    $(".container").on("click", ".clearBtn", saveEvent);
 });
 
 // CURRENT TEMPERATURE, CURRENT HUMIDITY, WINDSPEED, UV INDEX, AND 5 DAY FORECAST

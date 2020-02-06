@@ -14,3 +14,25 @@ body {
 height: 2rem;
  }
 
+ div.header {
+     font-size: 4rem;
+     color: white;
+     background-color: transparent;
+     text-align: center;
+     padding: 3rem 0rem;
+ }
+ .validate {
+     color: white;
+ }
+ #curWeather {
+     color: white;
+     background-color: rgba(19,90,117,.2);
+ }
+
+ .run-search {
+     color: white;
+     font-size: medium;
+     padding: 10px;
+
+ }
+

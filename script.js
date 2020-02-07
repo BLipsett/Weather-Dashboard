@@ -15,13 +15,20 @@ function buildQuery(city) {
     let queryURL = "https://api.weatherbit.io/v2.0/forecast/daily?city=" + city + _dsSecret;
     $.ajax({
         url: queryURL,
-        method: "GET"
+        method: "GET",
     }).then(function (response) {
 
-        console.log(response);
-        let apiKey = _dsSecret;
+        let wetArr = [response.data["0"], response.data["1"], response.data["2"], response.data["3"], response.data["4"]];
+        console.log(wetArr[0]);
+
+        //$.each(response.data["0"], function (index, val) {
+        let weatherData = (response.data["2"]);
+        console.log(weatherData.temp);
+
+        console.log(response.data["1"]);
+        //let apiKey = _dsSecret;
         //let city = "#search-term";
-        let getWeb = queryURL + apiKey;// + (zipCode());
+        //let getWeb = queryURL + apiKey;// + (zipCode());
         console.log(city);
 
 
@@ -48,14 +55,17 @@ function buildQuery(city) {
         let curWeather = $("<div>");
         curWeather.append(cityName, temp, condition, wind, humd, uv);
         console.log(tempF);
-        
+
         $("#curWeather").append(curWeather);
-        
-        
+
+
         var iconurl = "https://www.weatherbit.io/static/img/icons/" + weather + ".png";
         $('#wicon').attr('src', iconurl);
 
 
+
+        //console.log(response.data["0"]);
+        //})
 
 
 
@@ -63,7 +73,7 @@ function buildQuery(city) {
         //let temp = 7;
         //$("#forecastWeather").append(tempF);
 
-        return getWeb;
+        //return getWeb;
     });
 }
 
@@ -91,7 +101,7 @@ $(".run-search").on("click", showCont, function (saveEvent) {
     let city = $("#search-term").val().trim();
     $("div").removeClass("hide");
 
-    
+
 
 
     //build list from searched cities

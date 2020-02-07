@@ -18,7 +18,7 @@ function buildQuery(city) {
         method: "GET",
     }).then(function (response) {
 
-        let wetArr = [response.data["0"], response.data["1"], response.data["2"], response.data["3"], response.data["4"]];
+        let wetArr = [response.data["1"], response.data["2"], response.data["3"], response.data["4"], response.data["5"]];
         console.log(wetArr[0]);
 
         //$.each(response.data["0"], function (index, val) {
@@ -64,16 +64,36 @@ function buildQuery(city) {
 
 
 
-        //console.log(response.data["0"]);
-        //})
+        //Build 5 day weather forecast with date, icon, temp, humidity
+        $.each(wetArr, function (index, value) {
+            console.log(index, value.temp);
+
+            let cardF = Math.round((value.temp) * 9 / 5) + 32;
+            let weatherCard = (value.weather.icon);
+            let tempCard = $("<p>").text(cardF);
+            let dateCard = $("<p>").text(value.valid_date);
+            let cardUrl=("https://www.weatherbit.io/static/img/icons/" + weatherCard + ".png");
+            var iconurlCard = $('<img>').attr('src', cardUrl)
+            let humidCard = $("<p>").text(value.rh);
+            dateCard.append(iconurlCard).append(tempCard).append(humidCard);
+            
+            
+            //$("#forecastWeather").append(iconurlCard);
+            
+            
+            
+            
+            
+            
+            //$('#imgCard').attr('src', iconurlCard);
+
+
+            $("#forecastWeather").append(dateCard, iconurlCard);
 
 
 
-        //build 5 day forecast from call?
-        //let temp = 7;
-        //$("#forecastWeather").append(tempF);
+        })
 
-        //return getWeb;
     });
 }
 

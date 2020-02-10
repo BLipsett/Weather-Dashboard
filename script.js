@@ -138,6 +138,7 @@ $(".run-search").on("click", showCont, function () {
     let pastCity = $("<button>").text(city).addClass("run-list");
     $(".list").append(pastCity);
     localStorage.setItem("city", pastCity.text());
+    $.jStorage.set("")
 
 
     //saveEvent();
@@ -148,20 +149,22 @@ $(".run-search").on("click", showCont, function () {
 });
 
 $(".run-list").on("click", function () {
-    
+
     let addCity = localStorage.getItem("city");
     $("#search-term").append(addCity);
+    alert(localStorage.getItem("city"));
     console.log(addCity);
-
+    buildQuery(city);
 })
+alert(localStorage.getItem("city"));
 
-$(".clearBtn").on("click", function() {
+$(".clearBtn").on("click", function () {
     $("#forecastWeather").empty();
     $("#curWeather").empty();
-    
+
 });
 $(function () {
-    
+
 });
 
 // CURRENT TEMPERATURE, CURRENT HUMIDITY, WINDSPEED, UV INDEX, AND 5 DAY FORECAST

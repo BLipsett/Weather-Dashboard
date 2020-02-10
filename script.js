@@ -135,7 +135,7 @@ $(".run-search").on("click", showCont, function () {
 
 
     //build list from searched cities
-    let pastCity = $("<button>").text(city).addClass("run-search");
+    let pastCity = $("<button>").text(city).addClass("run-list");
     $(".list").append(pastCity);
     localStorage.setItem("city", pastCity.text());
 
@@ -143,11 +143,15 @@ $(".run-search").on("click", showCont, function () {
     //saveEvent();
     buildQuery(city);
     $("#search-term").val(" ");
+    $("#forecastWeather").empty();
+    $("#curWeather").empty();
 });
 
-$(".run-search").on("click", function () {
-    let addCity = localStorage.getItem("city", value);
+$(".run-list").on("click", function () {
+    
+    let addCity = localStorage.getItem("city");
     $("#search-term").append(addCity);
+    console.log(addCity);
 
 })
 

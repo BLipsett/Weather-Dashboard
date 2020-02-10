@@ -70,25 +70,27 @@ function buildQuery(city) {
 
             let cardF = Math.round((value.temp) * 9 / 5) + 32;
             let weatherCard = (value.weather.icon);
-            let tempCard = $("<p>").text(cardF);
+            let tempCard = $("<p>").text(cardF).prepend("Temperature: ");
             let dateCard = $("<p>").text(value.valid_date);
-            let cardUrl=("https://www.weatherbit.io/static/img/icons/" + weatherCard + ".png");
-            var iconurlCard = $('<img>').attr('src', cardUrl)
-            let humidCard = $("<p>").text(value.rh);
-            dateCard.append(iconurlCard).append(tempCard).append(humidCard);
-            
-            
+            let cardUrl = ("https://www.weatherbit.io/static/img/icons/" + weatherCard + ".png");
+            var iconurlCard = $('<img>').attr('src', cardUrl).addClass("imgSize");
+            let humidCard = $("<p>").text(value.rh).prepend("Humidity: ");
+            let dayDiv = $("<div>").addClass("col s12 m2 dayCards card-panel");
+            dayDiv.append(dateCard).append(iconurlCard).append(tempCard).append(humidCard);
+
+
+
             //$("#forecastWeather").append(iconurlCard);
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
             //$('#imgCard').attr('src', iconurlCard);
 
 
-            $("#forecastWeather").append(dateCard, iconurlCard);
+            $("#forecastWeather").append(dayDiv);
 
 
 
@@ -103,12 +105,21 @@ function buildQuery(city) {
 
 
 
-function saveEvent() {
-    let code = text(pastCity);
+/*function saveEvent() {
+    let code = $("#search-term").val().trim();
+    let recentCities = $("#cityList").text();
 
-    localStorage.setItem(code);
-    console.log(code);
-}
+
+    let str = recentCities[0];
+    let split = str.split(",");
+    let cityWeather = `${}`
+    //let myCity = split[0].split(" ").join("%20")
+
+
+
+    localStorage.setItem("city", split);
+    console.log(split);
+}*/
 
 function showCont() {
     $("#curCont").removeClass("hide");
@@ -116,7 +127,7 @@ function showCont() {
 }
 
 
-$(".run-search").on("click", showCont, function (saveEvent) {
+$(".run-search").on("click", showCont, function () {
     event.preventDefault();
     let city = $("#search-term").val().trim();
     $("div").removeClass("hide");
@@ -124,20 +135,34 @@ $(".run-search").on("click", showCont, function (saveEvent) {
 
 
 
+
     //build list from searched cities
     let pastCity = $("<button>").text(city).addClass("run-search");
     $(".list").append(pastCity);
+    localStorage.setItem("city", pastCity.text());
 
 
-
+    //saveEvent();
     buildQuery(city);
+    $("#search-term").val(" ");
 });
+
+$(".run-search").on("click", function() {
+let addCity = localStorage.getItem("city", pastCity.text());
+$("#search-term").append(addCity);
+
+})
+
 $("#clear").on("click", loadDashboard(), {
 
 });
 $(function () {
     loadDashboard();
-    $(".container").on("click", ".clearBtn", saveEvent);
+    $(".container").on("click", ".clearBtn");
 });
 
 // CURRENT TEMPERATURE, CURRENT HUMIDITY, WINDSPEED, UV INDEX, AND 5 DAY FORECAST
+//ZYY5KNQKBOMMQPQ57TSV
+
+//client=o4_x4N3jACl399fVOMIA8lKi4psH8KKy7JyNhrAwZZVMffSQxQuIHQ
+//apikey=3mADn9HyfTr8tnjrtf-X7cKy9cBwPeqPLJ4BG6ti

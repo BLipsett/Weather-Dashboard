@@ -2,51 +2,76 @@ body {
     background-image: url("https://images.unsplash.com/photo-1565023998836-962ff9d5f9be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
     size: 100vh;
 }
- .jumbotron {
-     color: white;
-     background-color: transparent;
- }
- div:empty {
-     display: none;
- }
 
- div.row.bottom {
-height: 2rem;
- }
+.jumbotron {
+    color: white;
+    background-color: transparent;
+}
 
- div.header {
-     font-size: 4rem;
-     color: white;
-     background-color: transparent;
-     text-align: center;
-     padding: 3rem 0rem;
- }
- .validate {
-     color: white;
- }
- #curWeather {
-     color: white;
-     background-color: rgba(19,90,117,.2);
- }
+div:empty {
+    display: none;
+}
 
- .run-search {
-     color: white;
-     font-size: medium;
-     padding: 10px;
- }
-  button.run-search {
-      background-color: transparent;
-      border: 1px white;
-      border-radius: 2px;
-      color: white;
-      margin: 1rem 0;
-  }
-  div.buttons {
-      padding: .75rem;
-  }
+div.row.bottom {
+    height: 2rem;
+}
 
-  .validate.valid {
-      color: white;
-      background-color: transparent;
-  }
+div.header {
+    font-size: 4rem;
+    color: white;
+    background-color: transparent;
+    text-align: center;
+    padding: 3rem 0rem;
+}
 
+.validate {
+    color: white;
+}
+
+#curWeather {
+    color: white;
+    background-color: rgba(19, 90, 117, .2);
+}
+
+.run-search {
+    color: white;
+    font-size: medium;
+    padding: 10px;
+}
+
+button.run-search {
+    background-color: transparent;
+    border: 1px white;
+    border-radius: 2px;
+    color: white;
+    margin: 1rem 0;
+}
+
+div.buttons {
+    padding: .75rem;
+}
+
+.validate.valid {
+    color: white;
+    background-color: transparent;
+}
+
+.dayCards {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(19, 90, 117, .2);
+    margin: 0rem 1.5rem;
+    
+}
+#forecastWeather {
+    margin: .5rem 1.5rem 1rem 1rem;
+    padding: 0rem;
+}
+
+.imgSize {
+    width: 100px;
+}
+
+.container {
+    width: 90%;
+}

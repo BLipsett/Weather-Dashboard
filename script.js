@@ -1,9 +1,7 @@
 _dsSecret = "&KEY=8847349d953145628ca0bbd65ed8bb9c";
 
 
-function loadDashboard() {
-    //$(".container").html("");
-}
+
 
 
 //query for weatherbit api
@@ -147,18 +145,19 @@ $(".run-search").on("click", showCont, function () {
     $("#search-term").val(" ");
 });
 
-$(".run-search").on("click", function() {
-let addCity = localStorage.getItem("city", pastCity.text());
-$("#search-term").append(addCity);
+$(".run-search").on("click", function () {
+    let addCity = localStorage.getItem("city", value);
+    $("#search-term").append(addCity);
 
 })
 
-$("#clear").on("click", loadDashboard(), {
-
+$(".clearBtn").on("click", function() {
+    $("#forecastWeather").empty();
+    $("#curWeather").empty();
+    
 });
 $(function () {
-    loadDashboard();
-    $(".container").on("click", ".clearBtn");
+    
 });
 
 // CURRENT TEMPERATURE, CURRENT HUMIDITY, WINDSPEED, UV INDEX, AND 5 DAY FORECAST

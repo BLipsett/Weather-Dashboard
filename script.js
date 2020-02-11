@@ -138,7 +138,7 @@ $(".run-search").on("click", showCont, function () {
     let pastCity = $("<button>").text(city).addClass("run-list");
     $(".list").append(pastCity);
     localStorage.setItem("city", pastCity.text());
-    $.jStorage.set("")
+    
 
 
     //saveEvent();
